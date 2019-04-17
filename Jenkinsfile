@@ -101,34 +101,65 @@
 // }
 
 pipeline {
-    environment {
-      DOCKER = credentials('docker-hub')
-    }
-  agent any
-  stages {
+		environment {
+			DOCKER = credentials('docker-hub')
+		}
+	agent any
+	stages {
 // Building your Test Images
-    stage('BUILD') {
-      steps {
-        echo 'This is the Build Stage'
-      }
-    }
+		stage('BUILD') {
+			steps {
+				echo 'This is the Build Stage'
+			}
+		}
 // Deploying your Software
-    stage('DEPLOY') {
-      steps {
-        echo 'This is the Deploy Stage'
-      }
-    }
+		stage('DEPLOY') {
+			steps {
+				echo 'This is the Deploy Stage'
+			}
+		}
 // JUnit reports and artifacts saving
-    stage('REPORTS') {
-      steps {
-        echo 'This is the Reports Stage'
-      }
-    }
+		stage('REPORTS') {
+			steps {
+				echo 'This is the Reports Stage'
+			}
+		}
 // Doing containers clean-up to avoid conflicts in future builds
-    stage('CLEAN-UP') {
-      steps {
-        echo 'This is the CLEAN-UP Stage'
-      }
-    }
-  }
+		stage('CLEAN-UP') {
+			steps {
+				echo 'This is the CLEAN-UP Stage'
+			}
+		}
+	}
+}
+
+
+
+
+pipeline {
+	//Environment Variables
+	environment {
+		ANSWER = 42
+	}
+	//Working Environment
+	agent any 
+	//Block of stages in the Deployment
+	stages { 
+		stage('Build') {
+			//Steps are the tasks/commands
+			steps {
+				echo 'Build Images for Deployment'
+			}
+		}
+		stage('Deploy') {
+			steps {
+				echo 'Deploy the application'
+			}
+		}
+		stage('Clean-up’') {
+			steps {
+				echo 'Clean Jenkins Workspace'
+			}
+		}
+	}
 }
