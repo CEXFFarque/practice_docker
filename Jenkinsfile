@@ -112,12 +112,6 @@ pipeline {
         echo 'This is the Build Stage'
       }
     }
-// Performing Software Tests
-    stage('TEST') {
-      steps {
-        echo 'This is the Test Stage'
-      }
-    }
 // Deploying your Software
     stage('DEPLOY') {
       steps {
