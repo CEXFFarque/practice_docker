@@ -133,33 +133,3 @@ pipeline {
 	}
 }
 
-
-
-
-pipeline {
-	//Environment Variables
-	environment {
-		ANSWER = 42
-	}
-	//Working Environment
-	agent any 
-	//Block of stages in the Deployment
-	stages { 
-		stage('Build') {
-			//Steps are the tasks/commands
-			steps {
-				echo 'Build Images for Deployment'
-			}
-		}
-		stage('Deploy') {
-			steps {
-				echo 'Deploy the application'
-			}
-		}
-		stage('Clean-up’') {
-			steps {
-				echo 'Clean Jenkins Workspace'
-			}
-		}
-	}
-}
